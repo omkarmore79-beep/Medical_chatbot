@@ -1,0 +1,72 @@
+[
+  {
+    "name": "symptom_nl_uti",
+    "query": "I have burning while peeing and fever. What could it be?",
+    "expected_domain": "symptoms",
+    "expected_top_source": "symptom_nl"
+  },
+  {
+    "name": "symptom_classic_flu",
+    "query": "I have fever, cough and body pain for 2 days. What could it be?",
+    "expected_domain": "symptoms",
+    "expected_top_source": "symptom_nl"
+  },
+  {
+    "name": "medqa_glaucoma",
+    "query": "What is glaucoma?",
+    "expected_domain": "medqa",
+    "expected_top_source": "medqa"
+  },
+  {
+    "name": "drug_side_effects_augmentin",
+    "query": "What are the side effects of Augmentin 625 Duo Tablet?",
+    "expected_domain": "drugs",
+    "expected_top_source": "drug_labels"
+  },
+  {
+    "name": "drug_warning_acetaminophen",
+    "query": "What are the warnings of acetaminophen?",
+    "expected_domain": "drugs",
+    "expected_top_source": "drug_labels"
+  },
+  {
+    "name": "drug_interaction_azithro",
+    "query": "Does azithromycin interact with terfenadine?",
+    "expected_domain": "drugs",
+    "expected_top_source": "interactions"
+  },
+  {
+    "name": "drug_use_dolo",
+    "query": "What is Dolo 650 used for?",
+    "expected_domain": "drugs",
+    "expected_top_source": "indian_medicine"
+  },
+  {
+    "name": "drug_generic_crocin",
+    "query": "What is the generic name of Crocin?",
+    "expected_domain": "drugs",
+    "expected_top_source": "rxnorm"
+  },
+  {
+    "name": "drug_property_dose_form",
+    "query": "What is the dose form of acetaminophen?",
+    "expected_domain": "drugs",
+    "expected_top_source": "rxnorm"
+  },
+  {
+    "name": "lab_test_creatinine",
+    "query": "What is creatinine test?",
+    "expected_domain": "lab",
+    "expected_top_source": "lab_refs"
+  },
+  {
+    "name": "lab_redirect_uploaded",
+    "query": "I uploaded my lab report for creatinine, explain it",
+    "expected_domain": "lab"
+  },
+  {
+    "name": "emergency_chest_pain",
+    "query": "What should I do for chest pain and shortness of breath?",
+    "expected_domain": "emergency"
+  }
+]

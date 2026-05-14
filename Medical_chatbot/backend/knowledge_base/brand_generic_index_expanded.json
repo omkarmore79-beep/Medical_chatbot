@@ -1,0 +1,1647 @@
+[
+  {
+    "brand": "actrapid",
+    "generic": "human insulin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "aldactone",
+    "generic": "spironolactone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "allegra",
+    "generic": "fexofenadine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "alprasafe",
+    "generic": "alprazolam",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "alprax",
+    "generic": "alprazolam",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amaryl",
+    "generic": "glimepiride",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amikacin",
+    "generic": "amikacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amikacin inj",
+    "generic": "amikacin",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "amikin",
+    "generic": "amikacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amlo",
+    "generic": "amlodipine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amlong",
+    "generic": "amlodipine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amlong a",
+    "generic": "amlodipine atenolol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amlopres",
+    "generic": "amlodipine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amoxikind",
+    "generic": "amoxicillin",
+    "aliases": "amoxikind, amoxikind 250, amoxikind 500, amoxikind ds, amoxykind",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "amoxikind 250",
+    "generic": "amoxicillin",
+    "aliases": "amoxikind, amoxikind 250, amoxikind 500, amoxikind ds, amoxykind",
+    "form": "tablet",
+    "strength": "250"
+  },
+  {
+    "brand": "amoxikind 500",
+    "generic": "amoxicillin",
+    "aliases": "amoxikind, amoxikind 250, amoxikind 500, amoxikind ds, amoxykind",
+    "form": "tablet",
+    "strength": "500"
+  },
+  {
+    "brand": "arkamin",
+    "generic": "clonidine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ascoril",
+    "generic": "ambroxol guaifenesin terbutaline",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ascoril ls",
+    "generic": "levosalbutamol ambroxol guaifenesin",
+    "aliases": "ascoril-ls",
+    "form": "syrup",
+    "strength": ""
+  },
+  {
+    "brand": "asthalin",
+    "generic": "salbutamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "atarax",
+    "generic": "hydroxyzine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "aten",
+    "generic": "atenolol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "atorva",
+    "generic": "atorvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "augmentin",
+    "generic": "amoxicillin clavulanic acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "augmentin duo",
+    "generic": "amoxicillin clavulanic acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "azee 500",
+    "generic": "azithromycin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "500"
+  },
+  {
+    "brand": "azithral 500",
+    "generic": "azithromycin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "500"
+  },
+  {
+    "brand": "azithromycin",
+    "generic": "azee",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "becadexamin",
+    "generic": "multivitamin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "becosules",
+    "generic": "vitamin b complex",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "becosules z",
+    "generic": "vitamin b complex zinc",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "benadryl",
+    "generic": "diphenhydramine ammonium chloride sodium citrate",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "betaloc",
+    "generic": "metoprolol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "betnesol",
+    "generic": "betamethasone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "brufen",
+    "generic": "ibuprofen",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "budecort",
+    "generic": "budesonide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "calcitriol d3 60k",
+    "generic": "cholecalciferol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "60k"
+  },
+  {
+    "brand": "calpol",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "calpol 500",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "500"
+  },
+  {
+    "brand": "calpol ds",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "candiderma",
+    "generic": "clotrimazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "cardace",
+    "generic": "ramipril",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "cefix 200",
+    "generic": "cefixime",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "200"
+  },
+  {
+    "brand": "ceftriaxone inj",
+    "generic": "ceftriaxone",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "ceftum",
+    "generic": "cefuroxime",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "cetirizine",
+    "generic": "cetirizine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "cetzine",
+    "generic": "cetirizine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "cifran",
+    "generic": "ciprofloxacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ciplox",
+    "generic": "ciprofloxacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "clavam",
+    "generic": "amoxicillin clavulanic acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "clonotril",
+    "generic": "clonazepam",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "clopitab",
+    "generic": "clopidogrel",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "clopivas ap",
+    "generic": "clopidogrel aspirin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "combiflam",
+    "generic": "ibuprofen paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "crestor",
+    "generic": "rosuvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "crocin",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "crocin advance",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "crocin ds",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "cv 625",
+    "generic": "amoxicillin clavulanic acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "625"
+  },
+  {
+    "brand": "d coldr",
+    "generic": "paracetamol phenylephrine chlorpheniramine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "deriphyllin",
+    "generic": "theophylline etophylline",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "diclofenac inj",
+    "generic": "diclofenac",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "digene",
+    "generic": "aluminium hydroxide magnesium hydroxide simethicone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "digene gel",
+    "generic": "aluminium hydroxide magnesium hydroxide simethicone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "dolo",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "dolo 500",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "500"
+  },
+  {
+    "brand": "dolo 650",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "650"
+  },
+  {
+    "brand": "dolokind plus",
+    "generic": "paracetamol caffeine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "domstal",
+    "generic": "domperidone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "duolin",
+    "generic": "ipratropium salbutamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "dynapar",
+    "generic": "diclofenac",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "dynapar aq",
+    "generic": "diclofenac",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "dytor",
+    "generic": "torsemide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ecosprin",
+    "generic": "aspirin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ecosprin 75",
+    "generic": "aspirin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "75"
+  },
+  {
+    "brand": "ecosprin av",
+    "generic": "aspirin atorvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "eltroxin",
+    "generic": "levothyroxine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "emset",
+    "generic": "ondansetron",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "eno",
+    "generic": "sodium bicarbonate citric acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "evion",
+    "generic": "vitamin e",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "flexon",
+    "generic": "ibuprofen paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "foracort",
+    "generic": "formoterol budesonide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "forxiga",
+    "generic": "dapagliflozin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "gabapin",
+    "generic": "gabapentin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "galvus",
+    "generic": "vildagliptin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "galvus met",
+    "generic": "vildagliptin metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "galvus met 50 500",
+    "generic": "vildagliptin metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "50, 500"
+  },
+  {
+    "brand": "gelusil",
+    "generic": "aluminium hydroxide magnesium hydroxide simethicone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "gelusil mps",
+    "generic": "aluminium hydroxide magnesium hydroxide simethicone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "gentamicin inj",
+    "generic": "gentamicin",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "genticin",
+    "generic": "gentamicin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glimisave",
+    "generic": "glimepiride",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glimy",
+    "generic": "glimepiride",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "gluconorm",
+    "generic": "metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glucophage",
+    "generic": "metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glyciphage",
+    "generic": "metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glycomet",
+    "generic": "metformin",
+    "aliases": "glisomet, glysomet",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glycomet gp1",
+    "generic": "metformin glimepiride",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glycomet gp2",
+    "generic": "metformin glimepiride",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glycomet trio",
+    "generic": "metformin glimepiride voglibose",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glysomet",
+    "generic": "metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "glyxambi",
+    "generic": "empagliflozin linagliptin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "grilinctus",
+    "generic": "dextromethorphan chlorpheniramine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "hifenac",
+    "generic": "aceclofenac",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "hifenac p",
+    "generic": "aceclofenac paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "insulatard",
+    "generic": "human insulin nph",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "iron folic",
+    "generic": "iron folic acid",
+    "aliases": "folic iron, ifa, iron folic, iron-folic",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "iron folic acid",
+    "generic": "iron folic acid",
+    "aliases": "folic iron, ifa, iron folic, iron-folic",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "istamet",
+    "generic": "sitagliptin metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "janumet",
+    "generic": "sitagliptin metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "janumet 50 500",
+    "generic": "sitagliptin metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "50, 500"
+  },
+  {
+    "brand": "januvia",
+    "generic": "sitagliptin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "jardiance",
+    "generic": "empagliflozin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "lantus",
+    "generic": "insulin glargine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "lasilactone",
+    "generic": "furosemide spironolactone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "lasix",
+    "generic": "furosemide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "lcz",
+    "generic": "levocetirizine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "levocet",
+    "generic": "levocetirizine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "levoflox",
+    "generic": "levofloxacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "limcee",
+    "generic": "vitamin c",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "limcee 500",
+    "generic": "vitamin c",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "500"
+  },
+  {
+    "brand": "lipitor",
+    "generic": "atorvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "liv 52",
+    "generic": "herbal liver tonic",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "52"
+  },
+  {
+    "brand": "losar",
+    "generic": "losartan",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "maha cef",
+    "generic": "ceftriaxone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "mahacef",
+    "generic": "ceftriaxone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "meftal",
+    "generic": "mefenamic acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "meftal spas",
+    "generic": "mefenamic acid dicyclomine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "meronem",
+    "generic": "meropenem",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "met xl",
+    "generic": "metoprolol succinate",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "met xl 25",
+    "generic": "metoprolol succinate",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "25"
+  },
+  {
+    "brand": "met xl 50",
+    "generic": "metoprolol succinate",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "50"
+  },
+  {
+    "brand": "metrogyl",
+    "generic": "metronidazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "mixtard",
+    "generic": "biphasic human insulin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "monocef o",
+    "generic": "cefpodoxime",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "montair",
+    "generic": "montelukast",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "montair lc",
+    "generic": "montelukast levocetirizine",
+    "aliases": "montair-lc",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "montek lc",
+    "generic": "montelukast levocetirizine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "moxiford",
+    "generic": "moxifloxacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "moxikind cv",
+    "generic": "amoxicillin clavulanic acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "natamet",
+    "generic": "natamycin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "neurobion forte",
+    "generic": "vitamin b1 b6 b12",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "neurokind plus",
+    "generic": "methylcobalamin alpha lipoic acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "nexito",
+    "generic": "escitalopram",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "nexpro",
+    "generic": "esomeprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "nise",
+    "generic": "nimesulide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "norflox tz",
+    "generic": "norfloxacin tinidazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "novorapid",
+    "generic": "insulin aspart",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "nurokind gold",
+    "generic": "methylcobalamin pregabalin alpha lipoic acid",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "oflox",
+    "generic": "ofloxacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "oflox oz",
+    "generic": "ofloxacin ornidazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "olmecip",
+    "generic": "olmesartan",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "olmezest",
+    "generic": "olmesartan",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "omee",
+    "generic": "omeprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "omez",
+    "generic": "omeprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ondansetron inj",
+    "generic": "ondansetron",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "otocin",
+    "generic": "ciprofloxacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "pan 40",
+    "generic": "pantoprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "40"
+  },
+  {
+    "brand": "pan d",
+    "generic": "pantoprazole domperidone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "pantocid",
+    "generic": "pantoprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "pantocid dsr",
+    "generic": "pantoprazole domperidone",
+    "aliases": "",
+    "form": "capsule",
+    "strength": ""
+  },
+  {
+    "brand": "pantodac",
+    "generic": "pantoprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "pantop",
+    "generic": "pantoprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "pantoprazole inj",
+    "generic": "pantoprazole",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "pcm inj",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "perinorm",
+    "generic": "metoclopramide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "pioz",
+    "generic": "pioglitazone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "piptaz",
+    "generic": "piperacillin tazobactam",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "placida",
+    "generic": "clonazepam escitalopram",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "plavix",
+    "generic": "clopidogrel",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "pregaba",
+    "generic": "pregabalin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "prolomet",
+    "generic": "metoprolol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "pulmicort",
+    "generic": "budesonide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "rabekind",
+    "generic": "rabeprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "rabium",
+    "generic": "rabeprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "rablet",
+    "generic": "rabeprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ramistar",
+    "generic": "ramipril",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ranitidine",
+    "generic": "ranitidine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ranitidine inj",
+    "generic": "ranitidine",
+    "aliases": "",
+    "form": "injection",
+    "strength": ""
+  },
+  {
+    "brand": "rantac",
+    "generic": "ranitidine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "rantac 150",
+    "generic": "ranitidine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "150"
+  },
+  {
+    "brand": "repace",
+    "generic": "losartan",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "repace h",
+    "generic": "losartan hydrochlorothiazide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "revital h",
+    "generic": "multivitamin minerals",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "rosuvas",
+    "generic": "rosuvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "seroflo",
+    "generic": "salmeterol fluticasone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "sertima",
+    "generic": "sertraline",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "shelcal",
+    "generic": "calcium vitamin d3",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "shelcal 500",
+    "generic": "calcium carbonate vitamin d3",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "500"
+  },
+  {
+    "brand": "shelcal hd",
+    "generic": "calcium vitamin d3",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "sinarest",
+    "generic": "paracetamol phenylephrine chlorpheniramine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "sompraz",
+    "generic": "esomeprazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "stamlo",
+    "generic": "amlodipine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "storvas",
+    "generic": "atorvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "storvas 10",
+    "generic": "atorvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "10"
+  },
+  {
+    "brand": "storvas 20",
+    "generic": "atorvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "20"
+  },
+  {
+    "brand": "sucral o",
+    "generic": "sucralfate oxetacaine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "supradyn",
+    "generic": "multivitamin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "synjardy",
+    "generic": "empagliflozin metformin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "taxim",
+    "generic": "ceftriaxone",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "taxim o",
+    "generic": "cefixime",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "taxim o 200",
+    "generic": "cefixime",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "200"
+  },
+  {
+    "brand": "tazact",
+    "generic": "piperacillin tazobactam",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "telma",
+    "generic": "telmisartan",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "telma am",
+    "generic": "telmisartan amlodipine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "telma h",
+    "generic": "telmisartan hydrochlorothiazide",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "telmikind",
+    "generic": "telmisartan",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "telsar",
+    "generic": "telmisartan",
+    "aliases": "",
+    "form": "syrup",
+    "strength": ""
+  },
+  {
+    "brand": "thyronorm",
+    "generic": "levothyroxine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "thyronorm 100",
+    "generic": "levothyroxine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "100"
+  },
+  {
+    "brand": "thyronorm 25",
+    "generic": "levothyroxine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "25"
+  },
+  {
+    "brand": "thyronorm 50",
+    "generic": "levothyroxine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "50"
+  },
+  {
+    "brand": "thyronorm 75",
+    "generic": "levothyroxine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "75"
+  },
+  {
+    "brand": "tiniba",
+    "generic": "tinidazole",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "tonact",
+    "generic": "atorvastatin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "toujeo",
+    "generic": "insulin glargine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "tramazac",
+    "generic": "tramadol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "tusq dx",
+    "generic": "dextromethorphan",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "tylenol",
+    "generic": "paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ulgel a",
+    "generic": "sucralfate oxetacaine",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "ultracet",
+    "generic": "tramadol paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "uprise d3",
+    "generic": "cholecalciferol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "uprise d3 60k",
+    "generic": "cholecalciferol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": "60k"
+  },
+  {
+    "brand": "vigamox",
+    "generic": "moxifloxacin",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "voglib",
+    "generic": "voglibose",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "voltaren",
+    "generic": "diclofenac",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "vomikind",
+    "generic": "ondansetron",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "voveran",
+    "generic": "diclofenac",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "zerodol",
+    "generic": "aceclofenac",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "zerodol p",
+    "generic": "aceclofenac paracetamol",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "zerodol sp",
+    "generic": "aceclofenac paracetamol serratiopeptidase",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "zestril",
+    "generic": "lisinopril",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "zifi",
+    "generic": "cefixime",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "zincovit",
+    "generic": "multivitamin minerals",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  },
+  {
+    "brand": "zolfresh",
+    "generic": "zolpidem",
+    "aliases": "",
+    "form": "tablet",
+    "strength": ""
+  }
+]

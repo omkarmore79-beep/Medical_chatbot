@@ -1,0 +1,34 @@
+# Python
+venv/
+**/venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node / Next.js
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+
+# Env files / API keys
+.env
+.env.*
+**/.env
+**/.env.*
+*.local
+
+# Huge datasets / vectorstores
+**/knowledge_base/drug_interactions_prepared.csv
+**/knowledge_base/drugbank_all_full_database.xml.zip
+**/knowledge_base/medquad_prepared.csv
+**/vectorstore_interactions/
+**/vectorstore_medqa/index.faiss
+**/vectorstore_medqa/index.pkl
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/

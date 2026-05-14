@@ -1,0 +1,2 @@
+drug_name,generic_name,interacting_drug,interaction_severity,interaction_text,source
+azithromycin,azithromycin,terfenadine,life-threatening,Example template row. Replace with licensed DrugBank data.,DrugBank

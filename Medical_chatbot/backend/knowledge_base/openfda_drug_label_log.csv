@@ -1,0 +1,81 @@
+source_term,result_count,status,error
+paracetamol,0,error,HTTP Error 404: Not Found
+mefenamic acid dicyclomine,0,error,HTTP Error 404: Not Found
+mefenamic acid,3,ok,
+ibuprofen paracetamol,0,error,HTTP Error 404: Not Found
+ibuprofen,3,ok,
+nimesulide,0,error,HTTP Error 404: Not Found
+aceclofenac,0,error,HTTP Error 404: Not Found
+aceclofenac paracetamol,0,error,HTTP Error 404: Not Found
+diclofenac,3,ok,
+tramadol paracetamol,0,error,HTTP Error 404: Not Found
+tramadol,3,ok,
+pantoprazole,3,ok,
+pantoprazole domperidone,0,error,HTTP Error 404: Not Found
+omeprazole,3,ok,
+esomeprazole,3,ok,
+rabeprazole,3,ok,
+ranitidine,3,ok,
+aluminium hydroxide magnesium hydroxide simethicone,0,error,HTTP Error 404: Not Found
+sodium bicarbonate citric acid,2,ok,
+metformin,3,ok,
+glimepiride,3,ok,
+sitagliptin metformin,0,error,HTTP Error 404: Not Found
+sitagliptin,3,ok,
+vildagliptin,0,error,HTTP Error 404: Not Found
+vildagliptin metformin,0,error,HTTP Error 404: Not Found
+empagliflozin linagliptin,1,ok,
+empagliflozin,3,ok,
+dapagliflozin,3,ok,
+voglibose,0,error,HTTP Error 404: Not Found
+human insulin,3,ok,
+human insulin nph,0,error,HTTP Error 404: Not Found
+biphasic human insulin,0,error,HTTP Error 404: Not Found
+insulin glargine,3,ok,
+insulin aspart,3,ok,
+amlodipine,3,ok,
+telmisartan,3,ok,
+olmesartan,3,ok,
+losartan,3,ok,
+ramipril,3,ok,
+lisinopril,3,ok,
+metoprolol,3,ok,
+atenolol,3,ok,
+aspirin,3,ok,
+clopidogrel,3,ok,
+atorvastatin,3,ok,
+rosuvastatin,3,ok,
+levothyroxine,3,ok,
+amoxicillin clavulanic acid,0,error,HTTP Error 404: Not Found
+azee,0,error,HTTP Error 404: Not Found
+cefixime,3,ok,
+cefpodoxime,3,ok,
+cefuroxime,3,ok,
+ceftriaxone,3,ok,
+ciprofloxacin,3,ok,
+ofloxacin,3,ok,
+levofloxacin,3,ok,
+metronidazole,3,ok,
+tinidazole,3,ok,
+amikacin,3,ok,
+gentamicin,3,ok,
+meropenem,3,ok,
+piperacillin tazobactam,0,error,HTTP Error 404: Not Found
+cetirizine,3,ok,
+levocetirizine,3,ok,
+fexofenadine,3,ok,
+hydroxyzine,3,ok,
+paracetamol phenylephrine chlorpheniramine,0,error,HTTP Error 404: Not Found
+montelukast levocetirizine,0,error,HTTP Error 404: Not Found
+montelukast,3,ok,
+ambroxol guaifenesin terbutaline,0,error,HTTP Error 404: Not Found
+levosalbutamol ambroxol guaifenesin,0,error,HTTP Error 404: Not Found
+diphenhydramine ammonium chloride sodium citrate,0,error,HTTP Error 404: Not Found
+dextromethorphan chlorpheniramine,0,error,HTTP Error 404: Not Found
+dextromethorphan,3,ok,
+salbutamol,0,error,HTTP Error 404: Not Found
+budesonide,3,ok,
+formoterol budesonide,0,error,HTTP Error 404: Not Found
+salmeterol fluticasone,0,error,HTTP Error 404: Not Found
+ipratropium salbutamol,0,error,HTTP Error 404: Not Found
+theophylline etophylline,0,error,HTTP Error 404: Not Found
