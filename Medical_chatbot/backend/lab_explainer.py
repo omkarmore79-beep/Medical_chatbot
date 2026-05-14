@@ -2,10 +2,24 @@
 
 import os
 import json
-from google import genai
+import logging
 from typing import List, Dict
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+logger = logging.getLogger(__name__)
+_lab_client = None
+
+
+def get_lab_client():
+    global _lab_client
+    if _lab_client is None:
+        # Render stability change: initialize the Gemini lab explainer client
+        # only when abnormal lab explanations are requested.
+        from google import genai
+
+        logger.info("Model loading started: Gemini lab explainer client")
+        _lab_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        logger.info("Model loading completed: Gemini lab explainer client")
+    return _lab_client
 
 
 def generate_explanation(abnormal_results: List[Dict]) -> Dict:
@@ -53,7 +67,7 @@ Abnormal Tests:
 """
 
     try:
-        response = client.models.generate_content(
+        response = get_lab_client().models.generate_content(
             model="gemini-2.5-flash",
             contents=prompt,
         )
@@ -85,7 +99,7 @@ Abnormal Tests:
         return formatted_output
 
     except Exception as e:
-        print("Gemini Parsing Error:", e)
+        logger.error("Gemini Parsing Error: %s", e)
 
         # 🔥 SAFE FALLBACK
         fallback = {}

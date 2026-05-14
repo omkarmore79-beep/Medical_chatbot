@@ -1,14 +1,27 @@
-from google import genai
-from google.genai import types
 import os
 import time
+import logging
 from dotenv import load_dotenv
 
 load_dotenv()
 
-client = genai.Client(
-    api_key=os.getenv("GEMINI_API_KEY")
-)
+logger = logging.getLogger(__name__)
+_vision_client = None
+
+
+def get_vision_client():
+    global _vision_client
+    if _vision_client is None:
+        # Render stability change: create the Gemini Vision client only when
+        # OCR is first requested, keeping FastAPI import/startup lightweight.
+        from google import genai
+
+        logger.info("Model loading started: Gemini Vision client")
+        _vision_client = genai.Client(
+            api_key=os.getenv("GEMINI_API_KEY")
+        )
+        logger.info("Model loading completed: Gemini Vision client")
+    return _vision_client
 
 
 class ImageOCRException(Exception):
@@ -40,6 +53,7 @@ def extract_text_from_prescription(image_bytes: bytes, mime_type: str) -> str:
     """
     Extract text from medical image using Gemini Vision.
     """
+    from google.genai import types
 
     prompt = """
 You are a medical OCR system.
@@ -55,7 +69,7 @@ Return only plain extracted text.
     for model in models:
         for attempt in range(2):
             try:
-                response = client.models.generate_content(
+                response = get_vision_client().models.generate_content(
                     model=model,
                     contents=[
                         prompt,
@@ -72,7 +86,7 @@ Return only plain extracted text.
                 raise ImageOCRException("No readable text was returned by the OCR model.")
 
             except Exception as e:
-                print("Vision error:", e)
+                logger.error("Vision error: %s", e)
                 if isinstance(e, ImageOCRException):
                     raise
                 last_error = e

@@ -1,19 +1,19 @@
 import os
 import re
+import logging
 from typing import Dict, List, Tuple
-import pandas as pd
 
 from dotenv import load_dotenv
-from google import genai
-from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
 
 from brand_mapping import brand_to_generic as MASTER_BRAND_TO_GENERIC
 
 
 load_dotenv()
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+logger = logging.getLogger(__name__)
+
+_emb = None
+_gemini_client = None
 
 
 VS_SYMPTOMS = "vectorstore_symptoms"
@@ -28,11 +28,6 @@ INTERACTIONS_FILE = os.path.join("knowledge_base", "drug_interactions_prepared.c
 INDIAN_MEDICINE_PREPARED_FILE = os.path.join("knowledge_base", "updated_indian_medicine_data_prepared.csv")
 
 
-emb = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
-
-
 _db_sym = None
 _db_sym_nl = None
 _db_qa = None
@@ -43,6 +38,53 @@ _db_interactions = None
 _db_lab_refs = None
 _interaction_pair_cache = {}
 _local_medicine_cache = None
+
+
+def get_pandas():
+    # Render stability change: pandas is only imported when CSV fallback data
+    # is needed for an actual request.
+    import pandas as pd
+
+    return pd
+
+
+def get_embeddings():
+    global _emb
+    if _emb is None:
+        # Render stability change: do not load the SentenceTransformer during
+        # module import. The embedding model is created on the first RAG request.
+        from langchain_huggingface import HuggingFaceEmbeddings
+
+        logger.info("Model loading started: HuggingFaceEmbeddings all-MiniLM-L6-v2")
+        _emb = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )
+        logger.info("Model loading completed: HuggingFaceEmbeddings all-MiniLM-L6-v2")
+    return _emb
+
+
+def get_gemini_client():
+    global _gemini_client
+    if _gemini_client is None:
+        # Render stability change: keep API client creation lazy as well.
+        from google import genai
+
+        logger.info("Model loading started: Gemini client")
+        _gemini_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        logger.info("Model loading completed: Gemini client")
+    return _gemini_client
+
+
+def _load_faiss_store(path: str):
+    from langchain_community.vectorstores import FAISS
+
+    store = FAISS.load_local(
+        path,
+        get_embeddings(),
+        allow_dangerous_deserialization=True,
+    )
+    logger.info("FAISS loading completed: %s", path)
+    return store
 
 
 brand_to_generic = {
@@ -142,61 +184,50 @@ SAFE_GENERIC_OVERRIDES = {
 def load_dbs():
     global _db_sym, _db_sym_nl, _db_qa, _db_indian, _db_rxnorm, _db_drug_labels, _db_interactions, _db_lab_refs
 
-    if _db_sym is None:
-        _db_sym = FAISS.load_local(
-            VS_SYMPTOMS,
-            emb,
-            allow_dangerous_deserialization=True,
+    if all(
+        db is not None
+        for db in (
+            _db_sym,
+            _db_sym_nl,
+            _db_qa,
+            _db_indian,
+            _db_rxnorm,
+            _db_drug_labels,
+            _db_interactions,
+            _db_lab_refs,
         )
+    ):
+        return
+
+    # Render stability change: vector indexes are loaded only when an endpoint
+    # first needs RAG, so uvicorn can bind port 10000 immediately.
+    logger.info("Model loading started: FAISS vector stores")
+
+    if _db_sym is None:
+        _db_sym = _load_faiss_store(VS_SYMPTOMS)
 
     if _db_sym_nl is None:
-        _db_sym_nl = FAISS.load_local(
-            VS_SYMPTOM_NL,
-            emb,
-            allow_dangerous_deserialization=True,
-        )
+        _db_sym_nl = _load_faiss_store(VS_SYMPTOM_NL)
 
     if _db_qa is None:
-        _db_qa = FAISS.load_local(
-            VS_MEDQA,
-            emb,
-            allow_dangerous_deserialization=True,
-        )
+        _db_qa = _load_faiss_store(VS_MEDQA)
 
     if _db_indian is None:
-        _db_indian = FAISS.load_local(
-            VS_INDIAN_MEDICINE,
-            emb,
-            allow_dangerous_deserialization=True,
-        )
+        _db_indian = _load_faiss_store(VS_INDIAN_MEDICINE)
 
     if _db_rxnorm is None:
-        _db_rxnorm = FAISS.load_local(
-            VS_RXNORM,
-            emb,
-            allow_dangerous_deserialization=True,
-        )
+        _db_rxnorm = _load_faiss_store(VS_RXNORM)
 
     if _db_drug_labels is None:
-        _db_drug_labels = FAISS.load_local(
-            VS_DRUG_LABELS,
-            emb,
-            allow_dangerous_deserialization=True,
-        )
+        _db_drug_labels = _load_faiss_store(VS_DRUG_LABELS)
 
     if _db_interactions is None:
-        _db_interactions = FAISS.load_local(
-            VS_INTERACTIONS,
-            emb,
-            allow_dangerous_deserialization=True,
-        )
+        _db_interactions = _load_faiss_store(VS_INTERACTIONS)
 
     if _db_lab_refs is None:
-        _db_lab_refs = FAISS.load_local(
-            VS_LAB_REFS,
-            emb,
-            allow_dangerous_deserialization=True,
-        )
+        _db_lab_refs = _load_faiss_store(VS_LAB_REFS)
+
+    logger.info("Model loading completed: FAISS vector stores")
 
 
 def _normalize_key(value: str) -> str:
@@ -318,6 +349,7 @@ def _load_local_medicine_cache():
         "description",
         "side_effects_list",
     ]
+    pd = get_pandas()
     df = pd.read_csv(INDIAN_MEDICINE_PREPARED_FILE, usecols=usecols).fillna("")
     for _, row in df.iterrows():
         entry = {col: str(row[col]).strip() for col in usecols}
@@ -445,6 +477,7 @@ def _chunk_exact_interaction_lookup(left: str, right: str):
         "interaction_text",
     ]
 
+    pd = get_pandas()
     for chunk in pd.read_csv(INTERACTIONS_FILE, usecols=usecols, chunksize=100000):
         normalized = pd.DataFrame(
             {
@@ -1022,7 +1055,7 @@ Return:
 """
 
     try:
-        response = client.models.generate_content(
+        response = get_gemini_client().models.generate_content(
             model="gemini-2.5-flash",
             contents=prompt,
         )

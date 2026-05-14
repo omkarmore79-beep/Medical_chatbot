@@ -1,11 +1,11 @@
+from __future__ import annotations
+
 import ast
 import os
 import re
 from itertools import combinations
 from typing import Dict, List, Optional, Tuple
 from difflib import SequenceMatcher
-
-import pandas as pd
 
 from medicine_parser import resolve_medicine_line
 
@@ -364,6 +364,14 @@ THERAPEUTIC_CATEGORY_RULES = [
 ]
 
 
+def get_pandas():
+    # Render stability change: pandas is only needed when CSV-backed
+    # prescription data is first requested, not during FastAPI import.
+    import pandas as pd
+
+    return pd
+
+
 def _normalize_text(value: str) -> str:
     value = str(value).lower()
     value = re.sub(r"[^a-z0-9\s]", " ", value)
@@ -379,6 +387,7 @@ def _load_medicine_catalog() -> Dict[str, Dict[str, str]]:
     if not os.path.exists(MEDICINE_DATA_FILE):
         return _MEDICINE_CATALOG
 
+    pd = get_pandas()
     usecols = ["name", "generic_or_salt", "uses", "description", "side_effects_list", "manufacturer_name"]
     df = pd.read_csv(MEDICINE_DATA_FILE, usecols=usecols).fillna("")
 
@@ -432,6 +441,7 @@ def _build_generic_term_lookup() -> Dict[str, str]:
         lookup[_normalize_text(alias)] = canonical
 
     if os.path.exists(MEDICINE_DATA_FILE):
+        pd = get_pandas()
         df = pd.read_csv(MEDICINE_DATA_FILE, usecols=["generic_or_salt"]).fillna("")
         for value in df["generic_or_salt"].tolist():
             for component in _split_generic_components_from_text(value):
@@ -463,6 +473,7 @@ def _load_interactions() -> pd.DataFrame:
     if _INTERACTION_ROWS is not None:
         return _INTERACTION_ROWS
 
+    pd = get_pandas()
     if not os.path.exists(INTERACTIONS_FILE):
         _INTERACTION_ROWS = pd.DataFrame()
         return _INTERACTION_ROWS
