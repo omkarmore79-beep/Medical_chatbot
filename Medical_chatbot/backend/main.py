@@ -1,35 +1,12 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from rag_engine import get_answer
-from image_processor import extract_text_from_prescription, ImageOCRException
 import logging
 import time
 
-from medicine_parser import (
-    extract_medicine_lines,
-    resolve_medicine_line
-)
-from prescription_analyzer import analyze_prescription_text
-from prescription_analyzer import classify_document_text
-
-from lab_report_parser import (
-    is_lab_report,
-    extract_lab_values,
-    interpret_lab_results,
-    extract_lab_report_metadata
-)
-from radiology_report_parser import (
-    is_radiology_report,
-    summarize_radiology_report
-)
-
-from lab_analyzer import generate_final_lab_output
-
-
-# -----------------------------
-# Create API server
-# -----------------------------
+# ==========================================
+# FASTAPI APP
+# ==========================================
 
 app = FastAPI(
     title="Medical Chatbot (Tanmay, Parth, Omkar)",
@@ -37,9 +14,10 @@ app = FastAPI(
     version="5.1"
 )
 
-# -----------------------------
-# CORS Middleware
-# -----------------------------
+# ==========================================
+# CORS
+# ==========================================
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -48,20 +26,143 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-# -----------------------------
-# Configure Logging
-# -----------------------------
+# ==========================================
+# LOGGING
+# ==========================================
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
+# ==========================================
+# LAZY LOADED MODULE VARIABLES
+# ==========================================
 
-# -----------------------------
-# Emergency Rules (TEXT)
-# -----------------------------
+get_answer = None
+
+extract_text_from_prescription = None
+ImageOCRException = None
+
+extract_medicine_lines = None
+resolve_medicine_line = None
+
+analyze_prescription_text = None
+classify_document_text = None
+
+is_lab_report = None
+extract_lab_values = None
+interpret_lab_results = None
+extract_lab_report_metadata = None
+
+is_radiology_report = None
+summarize_radiology_report = None
+
+generate_final_lab_output = None
+
+# ==========================================
+# STARTUP EVENT
+# ==========================================
+
+@app.on_event("startup")
+async def startup_event():
+
+    global get_answer
+
+    global extract_text_from_prescription
+    global ImageOCRException
+
+    global extract_medicine_lines
+    global resolve_medicine_line
+
+    global analyze_prescription_text
+    global classify_document_text
+
+    global is_lab_report
+    global extract_lab_values
+    global interpret_lab_results
+    global extract_lab_report_metadata
+
+    global is_radiology_report
+    global summarize_radiology_report
+
+    global generate_final_lab_output
+
+    try:
+        logging.info("Loading AI modules...")
+
+        from rag_engine import get_answer as rag_get_answer
+
+        from image_processor import (
+            extract_text_from_prescription as ocr_extract,
+            ImageOCRException as OCRException
+        )
+
+        from medicine_parser import (
+            extract_medicine_lines as med_lines,
+            resolve_medicine_line as med_resolve
+        )
+
+        from prescription_analyzer import (
+            analyze_prescription_text as prescription_analyze,
+            classify_document_text as classify_doc
+        )
+
+        from lab_report_parser import (
+            is_lab_report as check_lab,
+            extract_lab_values as extract_labs,
+            interpret_lab_results as interpret_labs,
+            extract_lab_report_metadata as extract_metadata
+        )
+
+        from radiology_report_parser import (
+            is_radiology_report as check_radiology,
+            summarize_radiology_report as summarize_radio
+        )
+
+        from lab_analyzer import (
+            generate_final_lab_output as final_lab_output
+        )
+
+        # ASSIGN TO GLOBALS
+        get_answer = rag_get_answer
+
+        extract_text_from_prescription = ocr_extract
+        ImageOCRException = OCRException
+
+        extract_medicine_lines = med_lines
+        resolve_medicine_line = med_resolve
+
+        analyze_prescription_text = prescription_analyze
+        classify_document_text = classify_doc
+
+        is_lab_report = check_lab
+        extract_lab_values = extract_labs
+        interpret_lab_results = interpret_labs
+        extract_lab_report_metadata = extract_metadata
+
+        is_radiology_report = check_radiology
+        summarize_radiology_report = summarize_radio
+
+        generate_final_lab_output = final_lab_output
+
+        logging.info("All AI modules loaded successfully.")
+
+    except Exception as e:
+        logging.error(f"Startup loading failed: {str(e)}")
+
+
+# ==========================================
+# REQUEST MODEL
+# ==========================================
+
+class QueryIn(BaseModel):
+    query: str
+
+
+# ==========================================
+# EMERGENCY RULES
+# ==========================================
 
 EMERGENCY_KEYWORDS = [
     "chest pain",
@@ -78,113 +179,97 @@ def check_emergency(query: str) -> bool:
     return any(word in query.lower() for word in EMERGENCY_KEYWORDS)
 
 
-# -----------------------------
-# Prescription Risk Keywords
-# -----------------------------
-
-PRESCRIPTION_ALERT_KEYWORDS = [
-    "nitroglycerin",
-    "adrenaline",
-    "epinephrine",
-    "morphine",
-    "dopamine",
-    "dobutamine"
-]
-
-
-def check_prescription_alert(extracted_text: str) -> bool:
-    return any(word in extracted_text.lower() for word in PRESCRIPTION_ALERT_KEYWORDS)
-
-
-def _needs_medicine_analysis_fallback(text: str) -> bool:
-    lower_text = text.lower()
-    return (
-        "retrieved information was broad" in lower_text
-        or lower_text.startswith("boxed warning:")
-        or lower_text.startswith("key precautions:")
-        or lower_text.startswith("warnings:")
-    )
-
-
-# -----------------------------
-# Request Body Model
-# -----------------------------
-
-class QueryIn(BaseModel):
-    query: str
-
-
-# -----------------------------
-# Health Check Route
-# -----------------------------
+# ==========================================
+# HEALTH CHECK
+# ==========================================
 
 @app.get("/")
 def home():
     return {
         "status": "ok",
-        "message": "Medical Chatbot API running (Text + Prescription + Lab Analyzer)"
+        "message": "Medical Chatbot API running"
     }
 
 
-# -----------------------------
+@app.get("/health")
+def health():
+    return {
+        "health": "healthy"
+    }
+
+
+# ==========================================
 # TEXT CHAT ROUTE
-# -----------------------------
+# ==========================================
 
 @app.post("/ask")
 def ask(payload: QueryIn):
 
     start_time = time.time()
-    user_query = payload.query.strip()
 
-    logging.info(f"User Query: {user_query}")
-
-    if check_emergency(user_query):
-        logging.warning("Emergency case detected (text)")
+    if get_answer is None:
         return {
-            "answer": (
-                "Warning: Your symptoms may indicate a medical emergency.\n"
-                "Please seek immediate medical care immediately.\n\n"
-                "This AI system cannot provide emergency assistance."
-            ),
-            "response_time_seconds": round(time.time() - start_time, 3)
+            "answer": "AI modules are still loading. Please wait."
         }
 
     try:
+        user_query = payload.query.strip()
+
+        logging.info(f"User Query: {user_query}")
+
+        if check_emergency(user_query):
+            return {
+                "answer": (
+                    "Warning: Your symptoms may indicate a medical emergency.\n"
+                    "Please seek immediate medical care immediately.\n\n"
+                    "This AI system cannot provide emergency assistance."
+                ),
+                "response_time_seconds": round(time.time() - start_time, 3)
+            }
+
         response = get_answer(user_query)
-    except Exception as e:
-        logging.error(f"RAG error: {str(e)}")
+
         return {
-            "answer": "Warning: The AI system is temporarily unavailable. Please try again shortly.",
+            "answer": response.get("answer", "No response generated."),
+            "confidence": response.get("confidence", 0.0),
+            "detected_domain": response.get("detected_domain", "unknown"),
             "response_time_seconds": round(time.time() - start_time, 3)
         }
 
-    return {
-        "answer": response.get("answer", "No response generated."),
-        "confidence": response.get("confidence", 0.0),
-        "detected_domain": response.get("detected_domain", "unknown"),
-        "response_time_seconds": round(time.time() - start_time, 3)
-    }
+    except Exception as e:
+        logging.error(f"RAG error: {str(e)}")
+
+        return {
+            "answer": "Warning: The AI system is temporarily unavailable.",
+            "response_time_seconds": round(time.time() - start_time, 3)
+        }
 
 
-# -----------------------------
-# PRESCRIPTION + LAB IMAGE ROUTE
-# -----------------------------
+# ==========================================
+# PRESCRIPTION + LAB ROUTE
+# ==========================================
 
 @app.post("/analyze-prescription")
 async def analyze_prescription(file: UploadFile = File(...)):
 
     start_time = time.time()
-    logging.info(f"Image received: {file.filename}")
+
+    if extract_text_from_prescription is None:
+        return {
+            "answer": "OCR system still loading."
+        }
 
     try:
+        logging.info(f"Image received: {file.filename}")
+
         image_bytes = await file.read()
-        mime_type = file.content_type
 
         try:
             extracted_text = extract_text_from_prescription(
                 image_bytes=image_bytes,
-                mime_type=mime_type
+                mime_type=file.content_type
             )
+
         except ImageOCRException as e:
             return {
                 "answer": f"Warning: {str(e)}",
@@ -193,95 +278,124 @@ async def analyze_prescription(file: UploadFile = File(...)):
 
         if not extracted_text:
             return {
-                "answer": "Warning: Unable to extract readable text from the image.",
+                "answer": "Unable to extract readable text from image.",
                 "response_time_seconds": round(time.time() - start_time, 3)
             }
 
         document_type = classify_document_text(extracted_text)
 
-        if document_type == "non_prescription_document":
-            unsupported_output = analyze_prescription_text(extracted_text)
-            unsupported_output["document_type"] = "unsupported_document"
-            unsupported_output["extracted_text"] = extracted_text
-            unsupported_output["response_time_seconds"] = round(time.time() - start_time, 3)
-            return unsupported_output
+        # ==========================================
+        # RADIOLOGY REPORT
+        # ==========================================
 
-        # =====================================================
-        # STEP 1 - DOCUMENT ROUTING
-        # =====================================================
+        if (
+            document_type == "radiology_report"
+            and is_radiology_report(extracted_text)
+        ):
 
-        if document_type == "radiology_report" and is_radiology_report(extracted_text):
             radiology_output = summarize_radiology_report(extracted_text)
+
             radiology_output["document_type"] = "radiology_report"
             radiology_output["extracted_text"] = extracted_text
-            radiology_output["response_time_seconds"] = round(time.time() - start_time, 3)
+            radiology_output["response_time_seconds"] = round(
+                time.time() - start_time,
+                3
+            )
+
             return radiology_output
 
-        if document_type == "lab_report" and is_lab_report(extracted_text):
+        # ==========================================
+        # LAB REPORT
+        # ==========================================
+
+        if (
+            document_type == "lab_report"
+            and is_lab_report(extracted_text)
+        ):
+
             lab_values = extract_lab_values(extracted_text)
 
             if not lab_values:
                 return {
                     "document_type": "lab_report",
-                    "extracted_text": extracted_text,
                     "analysis": "No recognizable lab values found.",
-                    "disclaimer": "Warning: Please consult your doctor for proper medical interpretation.",
-                    "response_time_seconds": round(time.time() - start_time, 3)
+                    "extracted_text": extracted_text,
+                    "response_time_seconds": round(
+                        time.time() - start_time,
+                        3
+                    )
                 }
 
-            interpreted_results = interpret_lab_results(lab_values, include_normal=True)
+            interpreted_results = interpret_lab_results(
+                lab_values,
+                include_normal=True
+            )
 
             final_output = generate_final_lab_output(interpreted_results)
+
             lab_metadata = extract_lab_report_metadata(extracted_text)
 
             final_output["document_type"] = "lab_report"
             final_output["extracted_text"] = extracted_text
+
             if lab_metadata:
                 final_output["lab_metadata"] = lab_metadata
-                final_output["structured_extraction"] = {
-                    "patient_name": lab_metadata.get("patient_name", ""),
-                    "patient_context": {
-                        "age": lab_metadata.get("age", ""),
-                        "gender": lab_metadata.get("gender", ""),
-                    },
-                    "tests": [lab_metadata.get("report_title", "")] if lab_metadata.get("report_title") else [],
-                    "advice_notes": [lab_metadata.get("report_interpretation", "")] if lab_metadata.get("report_interpretation") else [],
-                }
-            final_output["response_time_seconds"] = round(time.time() - start_time, 3)
+
+            final_output["response_time_seconds"] = round(
+                time.time() - start_time,
+                3
+            )
 
             return final_output
 
-        # =====================================================
-        # STEP 2 - PRESCRIPTION PROCESSING
-        # =====================================================
+        # ==========================================
+        # PRESCRIPTION PROCESSING
+        # ==========================================
 
         medicine_lines = extract_medicine_lines(extracted_text)
+
         prescription_output = analyze_prescription_text(extracted_text)
 
-        if not prescription_output["structured_extraction"]["medications"] and medicine_lines:
+        if (
+            not prescription_output["structured_extraction"]["medications"]
+            and medicine_lines
+        ):
+
             recovered_medicines = []
+
             for line in medicine_lines:
+
                 resolved = resolve_medicine_line(line)
+
                 recovered_medicines.append(
                     {
-                        "name": resolved.get("brand_name", "") or resolved.get("generic_name", ""),
+                        "name": (
+                            resolved.get("brand_name", "")
+                            or resolved.get("generic_name", "")
+                        ),
                         "strength": "",
                         "frequency": "",
                         "duration": "",
                         "instructions": "",
                     }
                 )
+
             prescription_output["structured_extraction"]["medications"] = recovered_medicines
 
         prescription_output["document_type"] = "prescription"
         prescription_output["extracted_text"] = extracted_text
-        prescription_output["response_time_seconds"] = round(time.time() - start_time, 3)
+        prescription_output["response_time_seconds"] = round(
+            time.time() - start_time,
+            3
+        )
+
         return prescription_output
 
     except Exception as e:
+
         logging.error(f"Image processing error: {str(e)}")
 
         return {
-            "answer": "Warning: Image processing failed. Please try again.",
+            "answer": "Warning: Image processing failed.",
             "response_time_seconds": round(time.time() - start_time, 3)
         }
