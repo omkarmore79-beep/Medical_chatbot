@@ -46,7 +46,11 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+}
 
 body {
   font-family: var(--font);
@@ -54,6 +58,7 @@ body {
   color: var(--gray-800);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* ─── PAGES ─── */
@@ -638,6 +643,7 @@ footer {
 .chat-bubble {
   padding: 12px 16px; border-radius: 18px;
   font-size: 14.5px; line-height: 1.65;
+  overflow-wrap: anywhere;
 }
 .chat-message.ai .chat-bubble {
   background: var(--white); border: 1.5px solid var(--gray-200);
@@ -1412,6 +1418,39 @@ footer {
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
+  :root { --nav-h: 62px; }
+  .section { padding: 64px 16px; }
+  .section-sm { padding: 48px 16px; }
+  .container,
+  .container-sm,
+  .hero-inner,
+  .footer-inner,
+  .upload-page-inner {
+    width: calc(100vw - 48px);
+    max-width: calc(100vw - 48px);
+    min-width: 0;
+  }
+  .hero-content,
+  .feature-card,
+  .testimonial-card,
+  .ethics-card,
+  .upload-card,
+  .preview-card,
+  .flow-diagram,
+  .footer-top > *,
+  .footer-bottom > * {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .btn {
+    max-width: 100%;
+    white-space: normal;
+  }
+  .nav-inner { padding: 0 16px; }
+  .nav-logo {
+    min-width: 0;
+    font-size: 16px;
+  }
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
   .nav-mobile {
@@ -1422,7 +1461,48 @@ footer {
   }
   .nav-mobile .nav-link { display: block; padding: 12px 0; border-bottom: 1px solid var(--gray-100); }
   .nav-mobile .nav-cta { display: block; margin-top: 12px; width: 100%; text-align: center; border-radius: var(--radius-full); }
+  .hero {
+    min-height: auto;
+    padding: calc(var(--nav-h) + 56px) 16px 56px;
+  }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-title {
+    font-size: clamp(30px, 9vw, 36px);
+  }
+  .hero-title span {
+    margin-left: 0;
+  }
+  .hero-badge,
+  .section-label {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .section-title br,
+  .hiw-main-title br {
+    display: none;
+  }
+  .hero-title br {
+    display: block;
+  }
+  .section-title,
+  .hiw-main-title,
+  .about-title,
+  .upload-page-title,
+  .hero-title,
+  .hero-subtitle,
+  .section-subtitle,
+  .upload-page-sub,
+  .about-desc,
+  .feature-desc,
+  .testimonial-text,
+  .footer-desc,
+  .footer-disclaimer {
+    overflow-wrap: anywhere;
+  }
+  .hero-subtitle {
+    max-width: 100%;
+    font-size: 16px;
+  }
   .hero-visual { display: none; }
   .hiw-steps { grid-template-columns: 1fr 1fr; }
   .hiw-steps::before { display: none; }
@@ -1434,23 +1514,57 @@ footer {
   .ethics-grid { grid-template-columns: 1fr; }
   .flow-steps { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); }
-  .trust-row-inner { gap: 16px; }
+  .trust-row { padding: 16px; }
+  .trust-row-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-items: stretch;
+  }
+  .trust-item {
+    white-space: normal;
+    justify-content: flex-start;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    background: rgba(255,255,255,.08);
+  }
   .trust-div { display: none; }
+  .chat-layout {
+    width: 100%;
+    min-width: 0;
+  }
+  .chat-main {
+    min-width: 0;
+    width: 100%;
+  }
   .chat-topbar { padding: 12px 16px; gap: 10px; }
   .chat-topbar-title { font-size: 14px; }
   .chat-topbar-subtitle { font-size: 11px; }
   .chat-messages { padding: 16px; gap: 14px; }
-  .chat-bubble-wrap { max-width: calc(100% - 48px); }
+  .chat-bubble-wrap {
+    max-width: calc(100% - 42px);
+    min-width: 0;
+  }
+  .chat-bubble {
+    max-width: 100%;
+    overflow-x: auto;
+  }
   .chat-message.ai .chat-bubble:has(.structured-answer),
   .chat-message.ai .chat-bubble:has(.general-answer),
-  .chat-message.ai .chat-bubble:has(.document-insight) {
+  .chat-message.ai .chat-bubble:has(.document-insight),
+  .chat-message.ai .chat-bubble:has(.rx-answer) {
     max-width: 100%;
     overflow-x: auto;
   }
   .structured-answer,
   .general-answer,
+  .rx-answer,
   .document-insight {
     min-width: 0;
+    width: 100%;
+  }
+  .general-section-grid {
+    grid-template-columns: 1fr;
   }
   .symptom-card-grid,
   .document-insight-grid,
@@ -1458,16 +1572,58 @@ footer {
     grid-template-columns: 1fr;
   }
   .document-medicine-table {
-    min-width: 620px;
+    min-width: 560px;
   }
   .chat-input-area { padding: 12px 14px; }
-  .upload-page { padding-left: 16px; padding-right: 16px; }
+  .chat-input-box {
+    min-width: 0;
+  }
+  .chat-input-field {
+    min-width: 0;
+  }
+  .upload-page {
+    padding: calc(var(--nav-h) + 32px) 16px 56px;
+  }
+  .upload-page-title,
+  .about-title {
+    font-size: 34px;
+    line-height: 1.15;
+  }
+  .flow-diagram {
+    padding: 24px 16px;
+  }
+  .modal-backdrop {
+    padding: 16px;
+  }
+  .modal {
+    padding: 28px 22px;
+  }
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .toast {
+    max-width: none;
+  }
 }
 @media (max-width: 600px) {
   .chat-sidebar { display: none; }
   .hiw-steps { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; align-items: flex-start; }
-  .chat-layout { padding-top: 0; }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+  .chat-layout {
+    height: 100svh;
+    min-height: 100svh;
+    padding-top: 0;
+  }
   .chat-main { padding-top: 48px; }
   .emergency-banner {
     padding: 8px 12px;
@@ -1483,6 +1639,13 @@ footer {
   .chat-bubble {
     padding: 10px 12px;
     font-size: 13.5px;
+  }
+  .chat-message.user .chat-bubble-wrap {
+    max-width: calc(100% - 38px);
+  }
+  .chat-topbar .btn {
+    padding: 8px 10px;
+    font-size: 12px;
   }
   .chat-input-box {
     align-items: center;

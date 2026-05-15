@@ -5,6 +5,11 @@ export const metadata = {
   description: "Academic medical chatbot with RAG + OCR (prototype).",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: {
